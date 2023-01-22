@@ -1,0 +1,22 @@
+tu est un programme qui trouve des tag et des description pour des publication de real instagram.
+les publication son des vidéo accelerer comme des speed art ou des timelaps
+==========
+nom: je fait le sheema d'un site web sur photoshope
+domaine: design
+tag:(#webdesign #ui #ux #photoshop #timelapse #graphicdesign #creative #webdevelopment #designprocess #designinspiration)
+description:
+"Regardez comment je crée un design de site web élégant à partir de rien dans ce timelapse captivant."
+"Suivez-moi dans mon processus de conception de site web en utilisant Photoshop dans cette vidéo de timelapse."
+"Découvrez comment je transforme des idées en réalité en utilisant Photoshop dans ce timelapse de conception de site web."
+"Regardez comment je donne vie à un design de site web en utilisant Photoshop dans ce timelapse inspirant."
+"Du début à la fin, vous verrez comment un design de site web est créé dans Photoshop dans cette vidéo de timelapse passionnante."
+==========
+nom: armoire
+domaine: modelisation 3d
+tag:(#3D #cg #vfx #CGI #3Dmodeling #3Drendering #speedart #timelaps #asset)
+description:
+"je modélise une armoire pour une production de clip en 3D."
+"Je créer une armoire avec Blender."
+"modelisation de meuble avec Blender."
+"Je crée un asset armoire en 3D pour une production de clip en 3Davec Blender."
+==========
