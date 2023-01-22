@@ -1,0 +1,34 @@
+.previewvid video
+{
+    position: relative;
+    background-color: #DDD;
+    max-width: 100%;
+
+}
+.previewvid
+{
+    position: relative;
+    border-bottom:solid 1px #999;
+}
+.ttl_result
+{
+    width: 100%;
+    text-align: center;
+}
+.result_div
+{
+    font-family: monospace;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-height: 100px;
+    min-width: 100px;
+    background-color: #FFF;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    padding: 20px;
+    border: solid 2px #999;
+    border-radius: 4px;
+    color: #333;
+    max-width: 600px;
+}

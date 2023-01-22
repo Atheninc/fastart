@@ -1,0 +1,68 @@
+@keyframes anim_ld
+        {
+            0%
+            {
+                transform: translate(-50%, -50%) rotate(0deg);
+
+                width: 60px;
+                height: 60px;
+            }
+            50%
+            {
+
+                width: 20px;
+                height: 20px;
+                background-color: #333;
+            }
+            100%
+            {
+                transform: translate(-50%, -50%) rotate(360deg);
+
+                width: 60px;
+                height: 60px;
+            }
+        }
+        .load_anim_div
+        {
+            position:absolute;
+            left:50%;
+            top: 50%;
+            width: 60px;
+            height: 60px;
+            background-color:#000;
+            transform: translate(-50%, -50%);
+
+            animation-duration: 2s;
+            animation-name: anim_ld;
+            animation-iteration-count: infinite;
+
+        }
+        .load_viewer
+        {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-color: #DDD;
+            place-items: center;
+            
+        }
+        .is_loading
+        {
+            font-family: monospace;
+            position: absolute;
+            left:50%;
+            top:50%;
+            min-height: 100px;
+            min-width: 100px;
+            background-color: #FFF;
+            transform: translate(-50%, -50%);
+            width: max-content;
+            padding: 20px;
+            border:solid 2px #999;
+            border-radius:4px;
+            color:#333;
+            }
+        body
+        {
+            background-color: #DDD;
+        }

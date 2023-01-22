@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="formulaire.css">
+        <link rel="stylesheet" href="isrec.css">
+        <link rel="stylesheet" href="isload.css">
+        <link rel="stylesheet" href="result.css">
+    </head>
+<body>
+    <div class="s1 sc" id="s1">
+        <div class="mod">
+            <p> nom:<input type="text" id="nom_art"></p>
+            <p>action :<select id="opt_art">
+                <option>modelisation 3d</option>
+                <option>composition d'image</option>
+                <option>programation</option>
+                <option>décor</option>
+            </select></p>
+            <textarea class="desc_opt" id="dec_art">information complémentaire</textarea>
+            <p><input type="button" value="demarer l'enregistrement" class="rec_btn" onclick="start_rec()"></p>
+            <input type="button" onclick="start_rec()">
+            </div>
+        </div>
+    <div class="s2 sc" id="s2">
+        <div class="is_rec">
+            <p><strong>enregistrement de {nom} en cours</strong></p>
+            <p>vous n'avez qu'a appuiller sur le bouton quand vois avez terminer, FastArt s'occupe de faire votre vidéo</p>
+            <p><input type="button" value="Terminer" onclick="stop_rec()"></p>
+        </div>
+    </div>
+    <div class="s3 sc" id="s3">
+        <div class="is_loading">
+            <p><strong>enregistrement de {nom} en cours</strong></p>
+            <div class="load_viewer">
+                <div class="load_anim_div">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s4 sc" id="s4">
+        <div class="result_div">
+            <h1 class="ttl_result">resultat</h1>
+            <!--
+                <div class="previewvid">
+                    <h3>video long</h3>
+                    <video contenteditable="true" autoplay="true" id="long_v">
+                        <source src="long.avi"
+                    type="video/avi">
+                    </video>
+                </div>
+            -->
+            <div class="previewvid">
+                <h3>video court</h3>
+                <video contenteditable="true" autoplay="true" id="short_v">
+                    <source src="short.mp4"
+                type="video/avi">
+                </video>
+            </div>
+            <div>
+                <input type="button" value="fini" >
+            </div>
+        </div>
+    </div>
+</body>
+<script src="eel.js"></script>
+<script>
+
+
+    function setPreview()
+    {
+        /*
+        //long
+            var tmp = document.getElementById("long_v");
+            var a = document.createElement("source");
+            a.setAttribute("src", "res/long.avi")
+            a.setAttribute("type", "video/avi")
+            tmp.appendChild(a);
+        */
+        //short
+        var tmp = document.getElementById("short_v");
+        var a = document.createElement("source");
+        a.setAttribute("src", "res/short.mp4")
+        a.setAttribute("type", "video/mp4")
+        tmp.appendChild(a);
+    }
+    var is_finish = false;
+    function start_rec()
+    {
+        var a = document.getElementById("s1");
+        var b = document.getElementById("s2");
+        a.style.display = "none";
+        b.style.display = "block";
+
+
+        var nom_art = document.getElementById("nom_art");
+        var opt_art = document.getElementById("opt_art");
+        var dec_art = document.getElementById("desc_art");
+
+        var txt = "";
+        txt += "nom: " + nom_art.value + "\n";
+        txt += "domaine: " + opt_art.value + "\n";
+        if (dec_art.value != "")
+        {
+            txt += "description: " + dec_art.value + "\n";
+        }
+        txt += "tag:";
+        console.log(txt);
+        eel.start_rec(txt);
+    }
+
+    function stop_rec()
+    {
+        eel.stop_rec();
+        var a = document.getElementById("s2");
+        var b = document.getElementById("s3");
+        a.style.display = "none";
+        b.style.display = "block";
+
+        setInterval(checkFinish, 1000);
+    }
+    function setEnd()
+    {
+        var a = document.getElementById("s3");
+        var b = document.getElementById("s4");
+        a.style.display = "none";
+        b.style.display = "block";
+
+        is_finish = true;
+        setPreview();
+    }
+
+    function checkFinish()
+    {
+        if (is_finish == false)
+        {
+            var x = new XMLHttpRequest();
+            x.open("GET", "stat.txt");
+            x.send();
+            x.onload = function(e)
+            {
+                txt = e.target.response;
+                console.log(txt);
+                if (txt == "1")
+                {
+                    setEnd();
+                }
+            }   
+        }
+    }
+
+    function main()
+    {
+        var a = document.getElementById("s1");
+        a.style.display = "block";
+    }
+    main();
+</script>
+<style>
+    .s1
+    {
+        /*background-color: #F00;*/
+    }
+    .s2
+    {
+        /*background-color: #0F0;*/
+    }
+    .s3
+    {
+        /*background-color: #00F;*/
+    }
+    .s4
+    {
+        /*background-color: #BBB;*/
+    }
+    .sc
+    {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /*
+            width: 300px;
+            height: 300px;
+            border:solid 3px #000;
+        */
+        display: none;
+    }
+</style>
+
+</html>
